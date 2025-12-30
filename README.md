@@ -25,7 +25,7 @@ npm install
 ```bash
 # 转换 Markdown 并输出 HTML
 # -i: 生成内联 HTML（适合富文本编辑器，无 DOCTYPE 等标签）
-node index.js examples/demo.md -t elegant-rose -i -o examples/demo-minimal.html
+node index.js examples/demo.md -t elegant-rose -i -o examples/demo-output.html
 ```
 
 ### 查看可用主题
@@ -63,8 +63,18 @@ Options:
 | 主题 | 风格 | 适用场景 | 特色 |
 |------|------|---------|------|
 | **wechat-default** | 清新简洁 | 通用文章、教程 | 蓝色系、现代无衬线字体 |
-| **wechat-elegant** | 高端杂志 | 人文、深度文章 | 宋体、金色装饰、段落缩进 |
-| **wechat-minimal** | 优雅极简 ✨ | 品味内容、思考文章 | Baskerville 字体、淡橙强调、macOS Terminal 代码块 |
+| **elegant-rose** ✨ | 现代优雅 | 品牌文章、专业内容 | 玫瑰红色系、苹方字体、层次分明 |
+| **wechat-minimal** | 优雅极简 | 品味内容、思考文章 | Baskerville 字体、淡橙强调、macOS Terminal 代码块 |
+
+#### elegant-rose 主题亮点 ✨
+
+- 🌹 **玫瑰红配色**：醒目但优雅的玫瑰红色系，现代而不刺眼
+- 🎨 **标题层次**：6 级标题使用不同深浅的红色，层次分明
+- ✍️ **苹方字体**：PingFang SC 无衬线字体，清晰现代
+- 💪 **加粗设计**：所有标题均采用加粗设计，视觉冲击力强
+- 🎯 **专业感**：适合品牌文章、产品介绍等专业内容
+
+![elegant-rose 示例](examples/images/demo-elegant-rose.jpg)
 
 #### wechat-minimal 主题亮点
 
@@ -96,11 +106,11 @@ node index.js input.md -t my-theme -c
 1. **准备 Markdown 文档**
 2. **转换为 HTML**：
    ```bash
-   node index.js article.md -t wechat-elegant -i -o output.html
+   node index.js article.md -t elegant-rose -i -o output.html
    ```
 3. **在浏览器中打开** `output.html`
 4. **全选并复制**（Cmd+A / Ctrl+A，然后 Cmd+C / Ctrl+C）
-5. **粘贴到微信公众号编辑器**
+5. **粘贴到微信公众号编辑器**（图片会自动识别和上传）
 6. 发布
 
 **提示**：使用 `-i` 参数生成的内联 HTML 更适合富文本编辑器，样式会被完整保留。
@@ -128,43 +138,53 @@ node index.js input.md -t my-theme -c
 # 使用 wechat-default 主题
 node index.js examples/demo.md -t wechat-default -i -o output.html
 
-# 使用 wechat-elegant 主题
-node index.js examples/demo.md -t wechat-elegant -i -o output.html
+# 使用 elegant-rose 主题（推荐）
+node index.js examples/demo.md -t elegant-rose -i -o output.html
+
+# 使用 wechat-minimal 主题
+node index.js examples/demo.md -t wechat-minimal -i -o output.html
 ```
 
 生成 HTML 后，在浏览器中打开，全选复制，然后粘贴到富文本编辑器即可。
 
 ## 图片支持
 
-md2rich 完整支持各种图片格式：
+md2rich 完整支持各种图片格式，**本地图片会自动转换为 base64 内嵌**，确保复制粘贴时图片能正常显示。
 
 ### 支持的格式
 
 - **SVG 矢量图**：完美支持，保持清晰度，适合图标和图表
 - **PNG/JPG**：常规位图格式
-- **在线图片**：支持通过 URL 引用的图片
+- **GIF/WebP**：支持动图和现代图片格式
+- **在线图片**：支持通过 URL 引用的图片（保持 URL）
+
+### 图片处理机制
+
+- **本地图片**（如 `images/icon.svg`）→ 自动转换为 base64 内嵌 ✨
+- **在线图片**（如 `https://...`）→ 保持原 URL
+- **复制粘贴**：微信公众号编辑器会自动识别并上传图片到微信服务器
 
 ### 使用示例
 
 ```markdown
-<!-- 本地 SVG 图片 -->
+<!-- 本地 SVG 图片 - 会自动转为 base64 -->
 ![图标](images/icon.svg)
 
-<!-- 在线图片 -->
+<!-- 在线图片 - 保持 URL -->
 ![Logo](https://example.com/logo.png)
 
-<!-- 本地位图 -->
+<!-- 本地位图 - 会自动转为 base64 -->
 ![截图](screenshots/demo.jpg)
 ```
 
-### SVG 优势
+### 优势
 
-- ✅ 无损缩放，在任何设备上都清晰
-- ✅ 文件体积通常更小
-- ✅ 支持透明背景
-- ✅ 可通过 CSS 样式化
+- ✅ **一键复制粘贴**：本地图片内嵌后，复制粘贴即可使用
+- ✅ **自动上传**：微信编辑器会自动识别并上传到微信服务器
+- ✅ **无需手动处理**：不需要先上传图片到图床
+- ✅ **完整支持**：SVG、PNG、JPG、GIF 等所有常见格式
 
-`examples/demo.md` 中包含了 SVG 图片的实际使用示例。
+`examples/demo.md` 中包含了图片的实际使用示例。
 
 ## 兼容性
 
@@ -172,9 +192,9 @@ md2rich 完整支持各种图片格式：
 
 - ✅ 样式完全内联，无需外部 CSS
 - ✅ 移除不兼容的标签和属性
-- ✅ 图片自动适配
+- ✅ 本地图片自动转 base64，复制粘贴即可使用
+- ✅ 微信编辑器自动识别并上传图片
 - ✅ 浏览器复制粘贴保留格式
-- ⚠️ 图片需要手动上传到微信服务器
 
 ### 其他富文本平台
 
