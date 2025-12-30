@@ -11,6 +11,7 @@ import {
   getAvailableThemes,
   sanitizeHTML
 } from './lib/styler.js';
+import { processImagesInHTML } from './lib/image-processor.js';
 
 const program = new Command();
 
@@ -58,6 +59,11 @@ program
       // 解析 Markdown
       console.log(chalk.blue('Parsing Markdown...'));
       let html = parseMarkdown(markdown);
+
+      // 处理图片：将本地图片转换为 base64
+      console.log(chalk.blue('Processing images...'));
+      const inputDir = path.dirname(path.resolve(input));
+      html = processImagesInHTML(html, inputDir);
 
       // 应用主题和内联样式
       console.log(chalk.blue(`Applying theme: ${options.theme}...`));
