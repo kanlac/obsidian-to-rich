@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200">
+  <!-- 背景 -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 第一步：Markdown -->
+  <rect x="20" y="50" width="120" height="100" rx="8" fill="#ECF0F1" stroke="#34495E" stroke-width="2"/>
+  <text x="80" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="#2C3E50">Markdown</text>
+  <text x="80" y="110" text-anchor="middle" font-size="12" fill="#7F8C8D">写作</text>
+  <text x="80" y="130" text-anchor="middle" font-size="20">📝</text>
+
+  <!-- 箭头 1 -->
+  <path d="M 140 100 L 180 100" stroke="#3498DB" stroke-width="3" fill="none" marker-end="url(#arrowblue)"/>
+  <defs>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3498DB" />
+    </marker>
+  </defs>
+
+  <!-- 第二步：md2rich -->
+  <rect x="180" y="50" width="120" height="100" rx="8" fill="url(#grad1)" stroke="#5B3A8F" stroke-width="2"/>
+  <text x="240" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="white">md2rich</text>
+  <text x="240" y="110" text-anchor="middle" font-size="12" fill="#ECF0F1">转换</text>
+  <text x="240" y="130" text-anchor="middle" font-size="20">⚙️</text>
+
+  <!-- 箭头 2 -->
+  <path d="M 300 100 L 340 100" stroke="#2ECC71" stroke-width="3" fill="none" marker-end="url(#arrowgreen)"/>
+  <defs>
+    <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2ECC71" />
+    </marker>
+  </defs>
+
+  <!-- 第三步：富文本 HTML -->
+  <rect x="340" y="50" width="120" height="100" rx="8" fill="#E8F8F5" stroke="#16A085" stroke-width="2"/>
+  <text x="400" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="#16A085">富文本</text>
+  <text x="400" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="#16A085">HTML</text>
+  <text x="400" y="130" text-anchor="middle" font-size="20">🎨</text>
+
+  <!-- 箭头 3 -->
+  <path d="M 460 100 L 500 100" stroke="#E74C3C" stroke-width="3" fill="none" marker-end="url(#arrowred)"/>
+  <defs>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#E74C3C" />
+    </marker>
+  </defs>
+
+  <!-- 第四步：发布 -->
+  <rect x="500" y="50" width="80" height="100" rx="8" fill="#FEF5E7" stroke="#F39C12" stroke-width="2"/>
+  <text x="540" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="#D68910">发布</text>
+  <text x="540" y="130" text-anchor="middle" font-size="20">🚀</text>
+</svg>

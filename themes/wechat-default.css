@@ -1,0 +1,197 @@
+/* 微信公众号默认主题 - 清新简洁风格 */
+
+/* 容器 */
+.markdown-body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #333333;
+  padding: 20px;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+/* 标题 */
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 30px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+  line-height: 1.4;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #34495e;
+  margin: 25px 0 15px;
+  padding-left: 10px;
+  border-left: 4px solid #3498db;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #34495e;
+  margin: 20px 0 12px;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #34495e;
+  margin: 18px 0 10px;
+  line-height: 1.4;
+}
+
+h5, h6 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #34495e;
+  margin: 15px 0 8px;
+  line-height: 1.4;
+}
+
+/* 段落 */
+p {
+  margin: 15px 0;
+  line-height: 1.75;
+  text-align: justify;
+}
+
+/* 链接 */
+a {
+  color: #3498db;
+  text-decoration: none;
+  border-bottom: 1px solid #3498db;
+}
+
+/* 列表 */
+ul, ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+li {
+  margin: 8px 0;
+  line-height: 1.75;
+}
+
+/* 引用 */
+blockquote {
+  margin: 20px 0;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-left: 4px solid #95a5a6;
+  color: #555;
+  font-style: italic;
+}
+
+blockquote p {
+  margin: 5px 0;
+}
+
+/* 代码 */
+code {
+  padding: 2px 6px;
+  margin: 0 2px;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 14px;
+  color: #e74c3c;
+}
+
+pre {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+pre code {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: #24292e;
+  font-size: 13px;
+}
+
+/* 表格 */
+table {
+  margin: 20px 0;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+thead {
+  background: #3498db;
+  color: white;
+}
+
+th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid #2980b9;
+}
+
+td {
+  padding: 10px 15px;
+  border: 1px solid #dfe6ec;
+  line-height: 1.6;
+}
+
+tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+tbody tr:hover {
+  background: #ecf0f1;
+}
+
+/* 分割线 */
+hr {
+  margin: 30px 0;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* 图片 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 4px;
+}
+
+/* 强调 */
+strong {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+em {
+  font-style: italic;
+  color: #34495e;
+}
+
+/* 删除线 */
+del {
+  text-decoration: line-through;
+  color: #95a5a6;
+}

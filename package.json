@@ -1,0 +1,30 @@
+{
+  "name": "md2rich",
+  "version": "1.0.0",
+  "description": "Convert Markdown to rich-text HTML with customizable themes and clipboard integration for platforms like WeChat Official Accounts",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "md2rich": "./index.js"
+  },
+  "scripts": {
+    "test": "node examples/test.js"
+  },
+  "keywords": [
+    "markdown",
+    "rich-text",
+    "html",
+    "wechat",
+    "converter",
+    "clipboard",
+    "theme"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^11.1.1",
+    "juice": "^10.0.0",
+    "commander": "^11.1.0",
+    "chalk": "^5.3.0"
+  }
+}

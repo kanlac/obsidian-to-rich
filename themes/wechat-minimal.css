@@ -1,0 +1,347 @@
+/*
+ * wechat-minimal 主题
+ * 设计理念：优雅极简主义 (Refined Minimalism)
+ * 灵感来源：Apple 设计语言 + 日式极简美学 + Dieter Rams 设计哲学
+ * 特色：精致留白、优雅字体、淡橙强调、macOS Terminal 代码块
+ *
+ * 自定义颜色：
+ * 所有颜色都使用 CSS 变量定义，只需修改 :root 中的变量值即可快速调整配色方案
+ * 例如：将淡橙色改为蓝色，只需修改 --accent-color: #3b82f6;
+ */
+
+/* === 颜色变量 - 方便调整修改 === */
+:root {
+  /* 主色调 - 淡橙色系 */
+  --accent-color: #f97316;
+  --accent-color-alpha: rgba(249, 115, 22, 0.3);
+  --code-inline-bg: #fff7ed;
+  --code-inline-border: #fed7aa;
+
+  /* 背景色 */
+  --bg-white: #ffffff;
+  --bg-light: #fafafa;
+  --bg-code-dark: #1e1e1e;
+  --bg-terminal-header: #2d2d2d;
+
+  /* 文字颜色 */
+  --text-black: #000000;
+  --text-primary: #1a1a1a;
+  --text-secondary: #2d2d2d;
+  --text-tertiary: #333333;
+  --text-muted: #4a4a4a;
+  --text-light: #666666;
+  --text-deleted: #999999;
+  --text-code: #d4d4d4;
+
+  /* 边框颜色 */
+  --border-light: #e5e5e5;
+  --border-lighter: #f0f0f0;
+
+  /* Terminal 控制按钮 */
+  --terminal-btn-red: #ff5f56;
+  --terminal-btn-yellow: #ffbd2e;
+  --terminal-btn-green: #27c93f;
+}
+
+/* === 容器 - 纯净画布 === */
+.markdown-body {
+  font-family: "Baskerville", "Georgia", "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-primary);
+  padding: 48px 32px;
+  max-width: 100%;
+  word-wrap: break-word;
+  background: var(--bg-white);
+  letter-spacing: 0.02em;
+}
+
+/* === 标题层级 - 克制的优雅 === */
+
+/* H1: 极简、大气、留白 */
+h1 {
+  font-family: "Baskerville", "Georgia", serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--text-black);
+  margin: 64px 0 40px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: left;
+  padding: 0;
+  border: none;
+}
+
+/* H2: 细线分隔 */
+h2 {
+  font-family: "Baskerville", "Georgia", serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--text-black);
+  margin: 56px 0 32px;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* H3: 纯粹的字重对比 */
+h3 {
+  font-family: "Baskerville", "Georgia", serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 48px 0 24px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+/* H4: 小标题 */
+h4 {
+  font-family: "Baskerville", "Georgia", serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin: 40px 0 20px;
+  line-height: 1.4;
+}
+
+/* H5, H6: 最小层级 */
+h5, h6 {
+  font-family: "Baskerville", "Georgia", serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 32px 0 16px;
+  line-height: 1.5;
+}
+
+/* === 段落 - 舒适阅读 === */
+p {
+  margin: 24px 0;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-size: 18px;
+}
+
+/* === 链接 - 淡橙优雅 === */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-color-alpha);
+  transition: border-color 0.2s ease;
+  font-weight: 400;
+}
+
+/* === 列表 - 简洁标记 === */
+ul, ol {
+  margin: 28px 0;
+  padding-left: 40px;
+}
+
+li {
+  margin: 16px 0;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+ul li {
+  list-style: none;
+  position: relative;
+  padding-left: 0;
+}
+
+ul li::before {
+  content: "·";
+  position: absolute;
+  left: -24px;
+  color: var(--accent-color);
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.8;
+}
+
+ol li {
+  padding-left: 8px;
+}
+
+/* === 引用块 - 极简边框 === */
+blockquote {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--bg-light);
+  border-left: 3px solid var(--accent-color);
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+blockquote p {
+  margin: 12px 0;
+  color: var(--text-muted);
+}
+
+/* === 代码 - macOS Terminal 窗口风格 === */
+
+/* 行内代码 - 橙色强调 */
+code {
+  padding: 4px 8px;
+  margin: 0 4px;
+  background: var(--code-inline-bg);
+  border: 1px solid var(--code-inline-border);
+  border-radius: 4px;
+  font-family: "SF Mono", "Monaco", "Menlo", "Courier New", monospace;
+  font-size: 16px;
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+/* 代码块 - 完整 Terminal 窗口 */
+pre {
+  margin: 40px 0;
+  padding: 52px 24px 24px 24px;
+  background: var(--bg-code-dark);
+  border-radius: 10px;
+  overflow-x: auto;
+  line-height: 1.6;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Terminal 标题栏 */
+pre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: var(--bg-terminal-header);
+  border-radius: 10px 10px 0 0;
+}
+
+/* Terminal 控制按钮（红、黄、绿） */
+pre::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  width: 12px;
+  height: 12px;
+  background: var(--terminal-btn-red);
+  border-radius: 50%;
+  box-shadow:
+    20px 0 0 var(--terminal-btn-yellow),
+    40px 0 0 var(--terminal-btn-green);
+}
+
+pre code {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: var(--text-code);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* 终端提示符样式 */
+pre code::before {
+  content: "$ ";
+  color: var(--terminal-btn-green);
+  font-weight: 600;
+  user-select: none;
+}
+
+/* === 表格 - 极简线条 === */
+table {
+  margin: 40px 0;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+thead {
+  background: var(--bg-light);
+  border-bottom: 2px solid var(--border-light);
+}
+
+th {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  border: none;
+}
+
+td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-lighter);
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+tbody tr {
+  background: var(--bg-white);
+  transition: background 0.15s ease;
+}
+
+tbody tr:hover {
+  background: var(--bg-light);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* === 分割线 - 极简横线 === */
+hr {
+  margin: 64px 0;
+  border: none;
+  height: 1px;
+  background: var(--border-light);
+}
+
+/* === 图片 - 留白包围 === */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 48px auto;
+  border-radius: 4px;
+}
+
+/* === 文本强调 - 橙色强调 === */
+strong {
+  font-weight: 600;
+  color: var(--accent-color);
+  letter-spacing: 0.01em;
+}
+
+em {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+del {
+  text-decoration: line-through;
+  color: var(--text-deleted);
+  opacity: 0.6;
+}
+
+/* === 代码块包装器 === */
+.code-wrapper {
+  margin: 40px 0;
+}
+
+/* === 表格包装器 === */
+.table-wrapper {
+  margin: 40px 0;
+  overflow-x: auto;
+}
