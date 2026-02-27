@@ -1,11 +1,11 @@
 {
-  "name": "md2rich",
+  "name": "obsidian-to-rich",
   "version": "1.0.0",
-  "description": "Convert Markdown to rich-text HTML with customizable themes and clipboard integration for platforms like WeChat Official Accounts",
+  "description": "Convert Obsidian Markdown to rich-text HTML with theme support",
   "type": "module",
   "main": "index.js",
   "bin": {
-    "md2rich": "./index.js"
+    "obsidian-to-rich": "./index.js"
   },
   "scripts": {
     "test": "node examples/test.js"
@@ -17,14 +17,15 @@
     "wechat",
     "converter",
     "clipboard",
-    "theme"
+    "theme",
+    "obsidian"
   ],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "marked": "^11.1.1",
-    "juice": "^10.0.0",
+    "chalk": "^5.3.0",
     "commander": "^11.1.0",
-    "chalk": "^5.3.0"
+    "juice": "^10.0.0",
+    "marked": "^11.1.1"
   }
 }
